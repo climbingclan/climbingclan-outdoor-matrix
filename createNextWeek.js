@@ -161,17 +161,15 @@ function formatDateISO(date) {
 
 
 /**
- * Formats a date in the format "MM/DD/YYYY hh:mm am/pm".
+ * Formats a date in the format "DD/MM/YYYY HH:mm".
  *
  * @param {Date} date - The date to format.
  * @returns {string} - The formatted date.
  */
 function formatDateWithLowercaseMeridian(date) {
-  var hours = date.getHours();
-  var meridian = hours < 12 ? "am" : "pm";
-  var formattedHours = (hours % 12 || 12).toString().padStart(2, "0");
+  var formattedHours = date.getHours().toString().padStart(2, "0");
   var formattedMinutes = date.getMinutes().toString().padStart(2, "0");
-  return Utilities.formatDate(date, "GMT", "MM/dd/yyyy ") + formattedHours + ":" + formattedMinutes + " " + meridian;
+  return Utilities.formatDate(date, "GMT", "dd/MM/yyyy ") + formattedHours + ":" + formattedMinutes;
 }
 
 
