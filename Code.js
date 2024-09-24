@@ -9,11 +9,12 @@ const url = `jdbc:mysql://${server}:${port}/${dbName}`;
 const apidomain = scriptProperties.getProperty('cred_apidomain');
 const apiusername = scriptProperties.getProperty('cred_apiusername');
 const apipassword = scriptProperties.getProperty('cred_apipassword');
+const apiKey = scriptProperties.getProperty('cred_apiKey');
+
 var outdoorTemplatePostID = "15510";
 var volunteeringOrderID = 15
 var volunteeringName = 3
 var volunteeringVolunteerRole = 4
-var apiKey = "removed" // "" ##openai
 
 function readData() {
 
