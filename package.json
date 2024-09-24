@@ -1,7 +1,7 @@
 {
-  "name": "qms-audit-project",
+  "name": "climbingclan-outdoor-matrix",
   "version": "1.0.0",
-  "description": "A Google Apps Script to document qms layout and functionality.",
+  "description": "A Google Apps Script for outdoor matrix",
   "scripts": {
     "push": "clasp push --auth ~/.clasprc.timmydobson.json",
     "pull": "clasp pull --auth ~/.clasprc.timmydobson.json",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tdobson/qms-audit-project.git"
+    "url": "git+https://github.com/climbingclan/climbingclan-outdoor-matrix.git"
   },
   "author": "Tim Dobson",
-  "license": "All Rights Reserved",
+  "license": "GPL-V3.0",
   "bugs": {
-    "url": "https://github.com/tdobson/qms-audit-project/issues"
+    "url": "https://github.com/climbingclan/climbingclan-outdoor-matrix/issues"
   },
-  "homepage": "https://github.com/tdobson/qms-audit-project#readme",
+  "homepage": "https://github.com/climbingclan/climbingclan-outdoor-matrix#readme",
   "dependencies": {
     "@types/google-apps-script": "^1.0.56",
     "clasp": "^1.0.0"

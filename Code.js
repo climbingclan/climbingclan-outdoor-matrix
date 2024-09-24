@@ -1,15 +1,19 @@
-var server = '18.168.242.164';
-var port = 3306;
-var dbName = 'bitnami_wordpress';
-var username = 'gsheets';
-var password = 'eyai4yohF4uX8eeP7phoob';
-var url = 'jdbc:mysql://'+server+':'+port+'/'+dbName;
+const scriptProperties = PropertiesService.getScriptProperties();
+
+const server = scriptProperties.getProperty('cred_server');
+const port = parseInt(scriptProperties.getProperty('cred_port'), 10);
+const dbName = scriptProperties.getProperty('cred_dbName');
+const username = scriptProperties.getProperty('cred_username');
+const password = scriptProperties.getProperty('cred_password');
+const url = `jdbc:mysql://${server}:${port}/${dbName}`;
+const apidomain = scriptProperties.getProperty('cred_apidomain');
+const apiusername = scriptProperties.getProperty('cred_apiusername');
+const apipassword = scriptProperties.getProperty('cred_apipassword');
 var outdoorTemplatePostID = "15510";
 var volunteeringOrderID = 15
 var volunteeringName = 3
 var volunteeringVolunteerRole = 4
-var apiKey = "AIzaSyD9x5EXE-c6G79MvG259pDeL7NhLwXT_kI" // "AIzaSyBhtGJEly6oyJ5hhhsIoRv3gMcK38aWYxc"
-var openAiKey = "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"
+var apiKey = "removed" // "" ##openai
 
 function readData() {
 
@@ -26,7 +30,7 @@ readTradSkillShare();
 readSportSkillShare();
 onOpen();
 
-} 
+}
 
 
 function appendToSheet(sheet, results) {
@@ -76,7 +80,7 @@ function appendToSheet(sheet, results) {
 
 
 
-  function setColoursFormat(sheet,cellrange,search, colour) { 
+  function setColoursFormat(sheet,cellrange,search, colour) {
   // Adds a conditional format rule to a sheet that causes all cells in range A1:B3 to turn red
   // if they contain a number between 1 and 10.
 
@@ -93,7 +97,7 @@ function appendToSheet(sheet, results) {
   }
 
 //setColoursFormatLessThanOrEqualTo(sheet, "O3:O1000",">=","30","#e0ffff")
-  function setColoursFormatLessThanOrEqualTo(sheet,cellrange, search, colour) { 
+  function setColoursFormatLessThanOrEqualTo(sheet,cellrange, search, colour) {
   // Adds a conditional format rule to a sheet that causes all cells in range A1:B3 to turn red
   // if they contain a number between 1 and 10.
 search = Number(search);
@@ -111,16 +115,16 @@ search = Number(search);
 
 
 //setNumberFormat(sheet, "O3:O1000", "Rule")
-  function setNumberFormat(sheet,cellrange, format) { 
+  function setNumberFormat(sheet,cellrange, format) {
 
   let range = sheet.getRange(cellrange);
   range.setNumberFormat(format);
-  
+
   }
 
 
 
-    function setTextFormat(sheet,cellrange,search, colour) { 
+    function setTextFormat(sheet,cellrange,search, colour) {
   // Adds a conditional format rule to a sheet that causes all cells in range A1:B3 to turn red
   // if they contain a number between 1 and 10.
 
@@ -136,17 +140,17 @@ search = Number(search);
   sheet.setConditionalFormatRules(rules);
   }
 
-    function setWrapped(sheet,cellrange) { 
+    function setWrapped(sheet,cellrange) {
   var cellrange = sheet.getRange(cellrange);
   cellrange.setWrap(true);
     }
-    
+
 function getIP() {
   var url = "http://api.ipify.org";
   var json = UrlFetchApp.fetch(url);
   Logger.log(json);
 
-  
+
 }
 
 function setupSheet(name){
